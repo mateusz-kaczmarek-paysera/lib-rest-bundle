@@ -1,5 +1,9 @@
 # Change Log
 
+## 5.2.0
+### Added
+- Support for Symfony 6.x
+
 ## 5.1.1
 ### Added
 - Support for PHP >=7.4

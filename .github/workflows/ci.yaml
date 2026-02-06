@@ -41,6 +41,16 @@ jobs:
               symfony: '6.*'
             - php: '8.0'
               symfony: '6.*'
+            # Symfony 4.* lowest doesn't support PHP 8.2+
+            - php: '8.2'
+              symfony: '4.*'
+              dependency: 'lowest'
+            - php: '8.3'
+              symfony: '4.*'
+              dependency: 'lowest'
+            - php: '8.4'
+              symfony: '4.*'
+              dependency: 'lowest'
 
     name: PHP ${{ matrix.php }} with ${{ matrix.dependency }} dependencies tests on ${{ matrix.operating-system }}
 

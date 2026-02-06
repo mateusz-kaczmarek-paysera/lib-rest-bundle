@@ -26,8 +26,21 @@ jobs:
           - '8.2'
           - '8.3'
           - '8.4'
+        symfony:
+            - '4.*'
+            - '5.*'
+            - '6.*'
         dependency:
-          - 'highest'
+            - 'lowest'
+            - 'highest'
+
+        # Exclude invalid combinations
+        exclude:
+            # Symfony 6.* requires PHP >= 8.1
+            - php: '7.4'
+              symfony: '6.*'
+            - php: '8.0'
+              symfony: '6.*'
 
     name: PHP ${{ matrix.php }} with ${{ matrix.dependency }} dependencies tests on ${{ matrix.operating-system }}
 
@@ -47,11 +60,3 @@ jobs:
 
       - name: Run all tests
         run: composer test
-
-#  Issue 1: CRITICAL - CI YAML Wrong Matrix Variable Name
-#
-#  File: .github/workflows/ci.yaml:37
-#  Issue: Uses ${{ matrix.php-versions }} but the matrix variable is defined as php (line 22), not php-versions.
-#  php-version: ${{ matrix.php-versions }}  # WRONG - should be matrix.php
-#  Impact: The PHP version won't be set correctly. The shivammathur/setup-php action will receive an undefined/empty value, causing tests to run with the system default PHP instead of the matrix-specified versions.
-#    ---

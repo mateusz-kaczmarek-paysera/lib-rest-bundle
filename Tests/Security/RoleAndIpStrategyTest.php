@@ -39,7 +39,7 @@ class RoleAndIpStrategyTest extends TestCase
         $tokenStorageMock = $this->getMockBuilder(TokenStorageInterface::class)->getMock();
 
         if (class_exists(InMemoryUser::class)) {
-            // Symfony 5.4+, 6.x
+            // Symfony 5.3+, 6.x (InMemoryUser introduced in 5.3)
             $token = new UsernamePasswordToken(
                 new InMemoryUser('user', 'password', ['ROLE_ADMIN', 'ROLE_FEATURE_MANAGER']),
                 'firewall',

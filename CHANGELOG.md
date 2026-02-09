@@ -3,6 +3,10 @@
 ## 5.2.0
 ### Added
 - Support for Symfony 6.x
+- Dropped support for Symfony 4.0 - 4.3
+- CI adjustments and fixes
+- Fixed nullable type deprecation for PHP 8.4
+- Updated PHPUnit version
 
 ## 5.1.1
 ### Added
